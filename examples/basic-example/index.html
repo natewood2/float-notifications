@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Float Notifications Example</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Float Notifications Example</h1>
+  <p>Click the buttons below to show different notifications.</p>
+  
+  <button id="simple-notification">Show Simple Notification</button>
+  <button id="custom-notification">Show Custom Notification</button>
+  
+  <script>
+    const { createNotification } = require('@float/notifications');
+    
+    document.getElementById('simple-notification').addEventListener('click', () => {
+      createNotification({
+        title: 'Simple Notification',
+        body: 'New Message!'
+      });
+    });
+    
+    document.getElementById('custom-notification').addEventListener('click', () => {
+      // Remove the onClick function from here
+      createNotification({
+        title: 'Custom Notification',
+        body: 'This is a custom notification with a longer duration',
+        duration: 24000,
+        position: 'bottom-right',
+        // Use a string identifier instead
+        clickAction: 'custom-notification-clicked'
+      });
+    });
+    
+    // Set up listener for notification click event
+    const { ipcRenderer } = require('electron');
+    ipcRenderer.on('notification-clicked', (event, actionId) => {
+      if (actionId === 'custom-notification-clicked') {
+        console.log('Notification clicked!');
+        alert('You clicked the notification!');
+      }
+    });
+  </script>
+</body>
+</html>

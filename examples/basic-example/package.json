@@ -1,0 +1,13 @@
+{
+  "name": "float-notifications-example",
+  "version": "1.0.0",
+  "description": "Example for @float/notifications",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "@float/notifications": "file:../../",
+    "electron": "^28.0.0"
+  }
+}
