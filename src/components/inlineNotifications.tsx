@@ -5,7 +5,7 @@ import FloatNotification from './FloatNotification';
 import { NotificationOptions } from '../types';
 
 // Interface for our exported methods
-interface InlineNotificationAPI {
+export interface InlineNotificationAPI {
   show: (options: NotificationOptions) => string;
   success: (title: string, body: string, options?: Partial<NotificationOptions>) => string;
   error: (title: string, body: string, options?: Partial<NotificationOptions>) => string;
