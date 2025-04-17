@@ -1,4 +1,3 @@
-// src/index.ts
 import { isTauri, createTauriNotification, closeNotification, closeAllNotifications, listenToNotificationClicks } from './utils/tauri-helper';
 import { NotificationOptions, NotificationItem, NotificationAction } from './types';
 import inlineNotify from './components/inlineNotifications';

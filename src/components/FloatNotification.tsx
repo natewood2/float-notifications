@@ -1,4 +1,3 @@
-// src/components/FloatNotification.tsx
 import React, { useEffect, useState, useRef } from 'react';
 import { NotificationOptions } from '../types';
 

@@ -1,4 +1,3 @@
-// src/hooks/useNotification.ts
 import { useCallback, useContext } from 'react';
 import { NotificationOptions } from '../types';
 import { NotificationContext } from '../components/NotificationProvider';
